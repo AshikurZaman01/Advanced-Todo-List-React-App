@@ -2,8 +2,26 @@
 import { IoMdAddCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useState } from "react";
 
 const Todo = () => {
+
+    const [todos, setTodos] = useState([
+        {
+            'title': 'Todo One',
+            'status': 'active'
+        },
+        {
+            'title': 'Todo Two',
+            'status': 'completed'
+        },
+        {
+            'title': 'Todo Three',
+            'status': 'pending'
+        }
+    ]);
+
+
 
 
     return (
@@ -23,14 +41,25 @@ const Todo = () => {
 
                     <div className="showItems w-[80%] mt-5 mb-5">
 
-                        <ul className="space-y-3 relative">
+                        {
+                            todos.map((todo, indx) => {
+                                return (
+                                    <ul key={indx} className="space-y-3 relative">
+                                        <span>
+                                            <li className="bg-purple-900 p-2 rounded text-pink-300 font-bold mb-2">{todo.title}</li>
 
-                            <li className="bg-purple-900 p-2 rounded text-pink-300 font-bold">Hello</li>
+                                            <button className="text-purple-700 btn btn-sm absolute top-[4px] right-12"><RiDeleteBin6Line /></button>
 
-                            <button className="text-purple-700 btn btn-sm absolute top-[-8px] right-12"><RiDeleteBin6Line /></button>
+                                            <button className="text-purple-700 btn btn-sm absolute top-[4px] right-0"><FaEdit /></button>
+                                        </span>
+                                    </ul>
+                                )
+                            })
+                        }
 
-                            <button className="text-purple-700 btn btn-sm absolute top-[-8px] right-0"><FaEdit /></button>
-                        </ul>
+
+
+
 
 
                     </div>
