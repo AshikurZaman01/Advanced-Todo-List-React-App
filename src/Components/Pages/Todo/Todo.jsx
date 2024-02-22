@@ -4,6 +4,8 @@ import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Todo = () => {
+
+
     return (
         <div className="flex justify-center items-center min-h-screen">
 
@@ -20,6 +22,7 @@ const Todo = () => {
                     </div>
 
                     <div className="showItems w-[80%] mt-5 mb-5">
+
                         <ul className="space-y-3 relative">
 
                             <li className="bg-purple-900 p-2 rounded text-pink-300 font-bold">Hello</li>
@@ -27,11 +30,9 @@ const Todo = () => {
                             <button className="text-purple-700 btn btn-sm absolute top-[-8px] right-12"><RiDeleteBin6Line /></button>
 
                             <button className="text-purple-700 btn btn-sm absolute top-[-8px] right-0"><FaEdit /></button>
-
-
-
-
                         </ul>
+
+
                     </div>
                 </div>
 
