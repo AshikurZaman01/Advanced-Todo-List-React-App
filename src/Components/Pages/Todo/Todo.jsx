@@ -10,18 +10,29 @@ const Todo = () => {
     const [title, setTitle] = useState("");
 
     const handleAddInput = () => {
-        const newTodos = {
-            "title": title,
-            "status": "pending"
+
+        if (title.trim() === "") {
+            alert("Please enter a task");
+        } else {
+            const newTodos = {
+                "title": title,
+                "status": "pending"
+            }
+            setTodos([...todos, newTodos]);
+            setTitle('');
         }
 
-        setTodos([...todos, newTodos]);
-        setTitle('');
+
+
+
     }
 
     const handleDeleteTodo = (id) => {
         const deleteTodo = todos.filter((todo, indx) => indx !== id);
         setTodos(deleteTodo);
+        if (deleteTodo.length === 0) {
+            alert("No more tasks");
+        }
     }
 
     const handleEditTodo = (id) => {
