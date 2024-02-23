@@ -6,20 +6,7 @@ import { useState } from "react";
 
 const Todo = () => {
 
-    const [todos, setTodos] = useState([
-        {
-            'title': 'Todo One',
-            'status': 'active'
-        },
-        {
-            'title': 'Todo Two',
-            'status': 'completed'
-        },
-        {
-            'title': 'Todo Three',
-            'status': 'pending'
-        }
-    ]);
+    const [todos, setTodos] = useState([]);
 
 
 
