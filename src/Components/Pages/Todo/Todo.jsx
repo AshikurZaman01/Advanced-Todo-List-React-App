@@ -7,8 +7,17 @@ import { useState } from "react";
 const Todo = () => {
 
     const [todos, setTodos] = useState([]);
+    const [title, setTitle] = useState("");
 
+    const handleAddInput = () => {
+        const newTodos = {
+            "title": title,
+            "status": "pending"
+        }
 
+        setTodos([...todos, newTodos]);
+        setTitle('');
+    }
 
 
     return (
@@ -22,8 +31,8 @@ const Todo = () => {
                 <div className="w-[500px] bg-pink-600 px-10 py-5 rounded">
 
                     <div className="addInputs relative">
-                        <input className="w-[80%] h-[40px] rounded outline-green-500 font-semibold text-purple-700 " type="text" name="" id="" />
-                        <button className="flex items-center text-xl absolute top-[5px] right-[-3%] btn btn-sm  bg-blue-900"><span><IoMdAddCircle /></span>New</button>
+                        <input value={title} onChange={e => setTitle(e.target.value)} className="w-[80%] h-[40px] rounded outline-green-500 font-semibold text-purple-700 " type="text" name="" id="" />
+                        <button onClick={handleAddInput} className="flex items-center text-xl absolute top-[5px] right-[-3%] btn btn-sm  bg-blue-900"><span><IoMdAddCircle /></span>New</button>
                     </div>
 
                     <div className="showItems w-[80%] mt-5 mb-5">
