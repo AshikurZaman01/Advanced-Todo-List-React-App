@@ -19,6 +19,10 @@ const Todo = () => {
         setTitle('');
     }
 
+    const handleDeleteTodo = (id) => {
+        const deleteTodo = todos.filter((todo, indx) => indx !== id);
+        setTodos(deleteTodo);
+    }
 
     return (
         <div className="flex justify-center items-center min-h-screen">
@@ -44,7 +48,7 @@ const Todo = () => {
                                         <span>
                                             <li className="bg-purple-900 p-2 rounded text-pink-300 font-bold mb-2">{todo.title}</li>
 
-                                            <button className="text-purple-700 btn btn-sm absolute top-[4px] right-12"><RiDeleteBin6Line /></button>
+                                            <button onClick={() => handleDeleteTodo(indx)} className="text-purple-700 btn btn-sm absolute top-[4px] right-12"><RiDeleteBin6Line /></button>
 
                                             <button className="text-purple-700 btn btn-sm absolute top-[4px] right-0"><FaEdit /></button>
                                         </span>
