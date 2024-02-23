@@ -24,6 +24,12 @@ const Todo = () => {
         setTodos(deleteTodo);
     }
 
+    const handleEditTodo = (id) => {
+        const editTodo = todos.find((todo, indx) => indx === id);
+        setTitle(editTodo.title);
+        handleDeleteTodo(id);
+    }
+
     return (
         <div className="flex justify-center items-center min-h-screen">
 
@@ -50,7 +56,7 @@ const Todo = () => {
 
                                             <button onClick={() => handleDeleteTodo(indx)} className="text-purple-700 btn btn-sm absolute top-[4px] right-12"><RiDeleteBin6Line /></button>
 
-                                            <button className="text-purple-700 btn btn-sm absolute top-[4px] right-0"><FaEdit /></button>
+                                            <button onClick={() => handleEditTodo(indx)} className="text-purple-700 btn btn-sm absolute top-[4px] right-0"><FaEdit /></button>
                                         </span>
                                     </ul>
                                 )
